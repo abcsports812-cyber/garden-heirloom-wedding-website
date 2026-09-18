@@ -15,7 +15,7 @@
 <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&family=Parisienne&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
 </head>
@@ -81,14 +81,15 @@
       <img id="hero-image" src="assets/images/hero.svg" alt="" class="hero__image">
       <div class="hero__overlay"></div>
     </div>
-    <div class="hero__leaf hero__leaf--one" aria-hidden="true"></div>
-    <div class="hero__leaf hero__leaf--two" aria-hidden="true"></div>
+    <img src="assets/florals/corner-rose-burgundy.svg" alt="" class="floral floral--tl floral--hero" aria-hidden="true">
+    <img src="assets/florals/corner-rose-blush.svg" alt="" class="floral floral--br floral--hero" aria-hidden="true">
 
     <div class="hero__content reveal-up">
       <p class="hero__eyebrow" id="hero-eyebrow">We're Getting Married</p>
       <h1 class="hero__names" id="hero-names">Olivia &amp; James</h1>
       <p class="hero__date" id="hero-date">Saturday • 12 June 2027</p>
       <p class="hero__venue" id="hero-venue">The Willow Estate</p>
+      <p class="hero__tagline" id="hero-tagline">Love, laughter, and happily ever after</p>
       <a href="#rsvp" class="btn btn--outline-light hero__rsvp">RSVP</a>
     </div>
 
@@ -103,6 +104,7 @@
     <div class="story__inner">
       <div class="story__media reveal-up">
         <img id="story-image" src="assets/images/story.svg" alt="Olivia and James together" loading="lazy">
+        <img src="assets/florals/corner-rose-blush.svg" alt="" class="floral floral--br floral--media" aria-hidden="true">
       </div>
       <div class="story__content">
         <p class="eyebrow reveal-up">Our Beginning</p>
@@ -118,6 +120,7 @@
   <section class="wedding" id="wedding" aria-labelledby="wedding-heading">
     <p class="eyebrow reveal-up">Join Us</p>
     <h2 class="section-heading section-heading--center reveal-up" id="wedding-heading">The Wedding</h2>
+    <img src="assets/florals/accent-sprig.svg" alt="" class="wedding__sprig reveal-up" aria-hidden="true">
 
     <div class="wedding__grid">
       <div class="wedding__col reveal-up">
@@ -141,7 +144,11 @@
 
   <!-- ============ 04 · COUNTDOWN ============ -->
   <section class="countdown-section" id="countdown" aria-labelledby="countdown-heading">
-    <h2 class="section-heading section-heading--center section-heading--on-dark reveal-up" id="countdown-heading">Counting Down to Forever</h2>
+    <div class="countdown-section__heading-row reveal-up">
+      <img src="assets/florals/divider-sprig.svg" alt="" class="countdown-section__sprig countdown-section__sprig--flip" aria-hidden="true">
+      <h2 class="section-heading section-heading--center section-heading--on-dark" id="countdown-heading">Counting Down to Forever</h2>
+      <img src="assets/florals/divider-sprig.svg" alt="" class="countdown-section__sprig" aria-hidden="true">
+    </div>
 
     <div class="countdown reveal-up" id="countdown-display" role="timer" aria-live="polite" aria-atomic="true">
       <div class="countdown__unit">
@@ -176,6 +183,7 @@
   <section class="venue" id="venue" aria-labelledby="venue-heading">
     <div class="venue__media reveal-up">
       <img id="venue-image" src="assets/images/venue.svg" alt="The Willow Estate" loading="lazy">
+      <img src="assets/florals/corner-rose-burgundy.svg" alt="" class="floral floral--tr floral--media" aria-hidden="true">
     </div>
     <div class="venue__content reveal-up">
       <h2 class="section-heading" id="venue-heading">The Willow Estate</h2>
@@ -191,16 +199,23 @@
 
     <div class="travel__grid">
       <div class="travel__col reveal-up">
+        <svg class="travel__icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M4 18l24-9-9 24-3-11-11-4z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
         <p class="travel__label">Arriving</p>
         <p class="travel__name" id="airport-name">Meadowbrook International Airport</p>
         <p class="travel__detail" id="airport-duration">30 minutes by car</p>
         <a id="airport-link" href="#" target="_blank" rel="noopener noreferrer" class="btn btn--text">Get Directions</a>
       </div>
       <div class="travel__col reveal-up">
+        <svg class="travel__icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M4 22v-8a3 3 0 013-3h18a3 3 0 013 3v8M4 22v3M28 22v3M4 17h24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
         <p class="travel__label">Stay</p>
         <p class="travel__name" id="hotel-name">The Garden House Hotel</p>
         <p class="travel__detail" id="hotel-address">20 Rose Avenue<br>Meadowbrook</p>
         <a id="hotel-link" href="#" target="_blank" rel="noopener noreferrer" class="btn btn--text">View Hotel</a>
+      </div>
+      <div class="travel__col reveal-up">
+        <svg class="travel__icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 4c-5 0-8 3.4-8 7.6 0 3 1.7 4.7 3 6.2.9 1 1.3 1.7 1.3 2.8h7.4c0-1.1.4-1.8 1.3-2.8 1.3-1.5 3-3.2 3-6.2C24 7.4 21 4 16 4z" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M13 24h6M14 27h4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        <p class="travel__label">Travel Tips</p>
+        <ul class="travel__tips" id="travel-tips-list"></ul>
       </div>
     </div>
   </section>
@@ -209,6 +224,7 @@
   <section class="people" id="people" aria-labelledby="people-heading">
     <p class="eyebrow reveal-up">The Wedding Party</p>
     <h2 class="section-heading section-heading--center reveal-up" id="people-heading">Our People</h2>
+    <img src="assets/florals/accent-sprig.svg" alt="" class="people__sprig reveal-up" aria-hidden="true">
 
     <div class="people__group">
       <h3 class="people__group-heading" id="bridesmaids-heading">Bridesmaids</h3>
@@ -225,6 +241,7 @@
   <section class="gallery" id="gallery" aria-labelledby="gallery-heading">
     <p class="eyebrow reveal-up">Moments</p>
     <h2 class="section-heading section-heading--center reveal-up" id="gallery-heading">A Few Favorite Moments</h2>
+    <img src="assets/florals/divider-sprig.svg" alt="" class="gallery__sprig reveal-up" aria-hidden="true">
 
     <div class="gallery__grid reveal-up" id="gallery-grid"></div>
   </section>
@@ -239,6 +256,8 @@
 
   <!-- ============ 11 · RSVP ============ -->
   <section class="rsvp" id="rsvp" aria-labelledby="rsvp-heading">
+    <img src="assets/florals/corner-rose-small.svg" alt="" class="floral floral--tl floral--rsvp" aria-hidden="true">
+    <img src="assets/florals/corner-rose-small.svg" alt="" class="floral floral--br floral--rsvp" aria-hidden="true">
     <p class="eyebrow reveal-up">Please Respond</p>
     <h2 class="section-heading section-heading--center reveal-up" id="rsvp-heading">Kindly RSVP</h2>
     <p class="rsvp__message reveal-up" id="rsvp-message">We can't wait to celebrate with you.</p>
@@ -263,6 +282,7 @@
   <section class="closing" id="closing" aria-label="Closing">
     <img id="closing-image" src="assets/images/closing.svg" alt="" class="closing__image" loading="lazy">
     <div class="closing__overlay"></div>
+    <img src="assets/florals/corner-rose-blush.svg" alt="" class="floral floral--tl floral--closing" aria-hidden="true">
     <div class="closing__content reveal-up">
       <p class="closing__names" id="closing-names">Olivia &amp; James</p>
       <p class="closing__date" id="closing-date">12 June 2027</p>

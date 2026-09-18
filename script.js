@@ -52,6 +52,7 @@
     setText('hero-names', names);
     setText('hero-date', cfg.date.display);
     setText('hero-venue', cfg.venue.name);
+    setText('hero-tagline', cfg.hero.tagline);
     setImg('hero-image', cfg.hero.image, names + ' — ' + cfg.venue.name);
 
     // Story
@@ -95,6 +96,9 @@
     setText('hotel-name', cfg.travel.hotel.name);
     setAddress('hotel-address', cfg.travel.hotel.addressLine1, cfg.travel.hotel.addressLine2);
     setHref('hotel-link', cfg.travel.hotel.url);
+    renderList('travel-tips-list', cfg.travel.tips, function (tip) {
+      return renderEl('li', {}, [document.createTextNode(tip)]);
+    });
 
     // People
     setText('bridesmaids-heading', cfg.people.bridesmaids.heading);

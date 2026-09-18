@@ -30,6 +30,19 @@ date: {
 
 ---
 
+## Hero Tagline
+
+```js
+hero: {
+  image: "assets/images/hero.svg",
+  eyebrow: "We're Getting Married",
+  tagline: "Love, laughter, and happily ever after"
+}
+```
+`tagline` is a short decorative line shown in a script font beneath your venue name in the hero. Keep it to one short phrase — it's meant to be a flourish, not another headline.
+
+---
+
 ## Venue
 
 ```js
@@ -101,10 +114,15 @@ travel: {
     addressLine1: "20 Rose Avenue",
     addressLine2: "Meadowbrook",
     url: "https://www.booking.com"
-  }
+  },
+  tips: [
+    "Book flights early for the best rates.",
+    "Consider travel insurance.",
+    "Pack for warm, sunny weather."
+  ]
 }
 ```
-Update the airport name/directions link, and your recommended hotel's name, address, and booking link.
+Update the airport name/directions link, and your recommended hotel's name, address, and booking link. Add, remove, or edit as many `tips` as you like — each is a short sentence shown as a bullet in the "Travel Tips" column.
 
 ---
 
@@ -137,10 +155,13 @@ gallery: [
   { image: "assets/images/gallery-2.svg", alt: "Detail from the proposal", size: "small" },
   { image: "assets/images/gallery-3.svg", alt: "Golden hour together", size: "small" },
   { image: "assets/images/gallery-4.svg", alt: "A candid moment of laughter", size: "wide" },
-  { image: "assets/images/gallery-5.svg", alt: "Walking hand in hand", size: "large" }
+  { image: "assets/images/gallery-6.svg", alt: "A quiet walk through the garden", size: "portrait" },
+  { image: "assets/images/gallery-7.svg", alt: "Details from the day", size: "portrait" },
+  { image: "assets/images/gallery-5.svg", alt: "Walking hand in hand", size: "large" },
+  { image: "assets/images/gallery-8.svg", alt: "The estate at sunset", size: "wide" }
 ]
 ```
-This section uses exactly **five images** in a fixed editorial layout (large / small / small / wide / large). Replace the `image` paths with your own photos and update the `alt` text to describe each photo (important for accessibility). Keep the `size` values as-is unless you also adjust the gallery CSS.
+This section uses exactly **eight images** in a fixed editorial mosaic (large / small / small / wide / portrait / portrait / large / wide). Replace the `image` paths with your own photos and update the `alt` text to describe each photo (important for accessibility). Keep the `size` values, and their order, as-is unless you also adjust the gallery CSS in `style.css`.
 
 ---
 
@@ -192,6 +213,21 @@ closing: {
 }
 ```
 Edit the closing message and swap in a final photo or botanical image.
+
+---
+
+## Floral Decorations
+
+The soft rose-and-eucalyptus accents around the hero, story photo, countdown heading, venue photo, wedding party, gallery, RSVP card, and closing section come from reusable SVG files in `assets/florals/`:
+
+| File | Used for |
+|---|---|
+| `corner-rose-burgundy.svg` / `corner-rose-blush.svg` | Corner accents on the hero, story photo, venue photo, and closing section |
+| `corner-rose-small.svg` | The small accents on the RSVP card |
+| `divider-sprig.svg` / `divider-sprig-flip.svg` | The sprigs beside the countdown heading and above the gallery |
+| `accent-sprig.svg` | The small single sprig near "The Wedding" and "Our People" headings |
+
+These are decorative and optional — you don't need to touch them to customize your site. If you'd like to remove one, delete its `<img class="floral ...">` tag from `index.html`; if you'd like to reuse one elsewhere, copy an existing `<img class="floral floral--tl ...">` tag and change which corner class (`floral--tl`, `floral--tr`, `floral--bl`, `floral--br`) it uses.
 
 ---
 

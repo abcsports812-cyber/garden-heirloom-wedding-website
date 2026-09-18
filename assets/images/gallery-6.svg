@@ -1,19 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800" role="img" aria-label="Decorative placeholder">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1100" width="900" height="1100" role="img" aria-label="Decorative placeholder">
   <defs>
-    <linearGradient id="g35" x1="10%" y1="0%" x2="90%" y2="100%">
+    <linearGradient id="g16" x1="10%" y1="0%" x2="90%" y2="100%">
       <stop offset="0%" stop-color="#F2C6B4" stop-opacity="0.6"/>
       <stop offset="100%" stop-color="#FBF3EC" stop-opacity="1"/>
     </linearGradient>
-    <radialGradient id="hg35" cx="25%" cy="15%" r="70%">
+    <radialGradient id="hg16" cx="25%" cy="15%" r="70%">
       <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.28"/>
       <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="vg35" cx="50%" cy="50%" r="75%">
+    <radialGradient id="vg16" cx="50%" cy="50%" r="75%">
       <stop offset="55%" stop-color="#000000" stop-opacity="0"/>
       <stop offset="100%" stop-color="#000000" stop-opacity="0.12"/>
     </radialGradient>
   </defs>
-  <rect width="800" height="800" fill="url(#g35)"/>
-  <rect width="800" height="800" fill="url(#hg35)"/>
-  <rect width="800" height="800" fill="url(#vg35)"/>
+  <rect width="900" height="1100" fill="url(#g16)"/>
+  <rect width="900" height="1100" fill="url(#hg16)"/>
+  <rect width="900" height="1100" fill="url(#vg16)"/>
 </svg>

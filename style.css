@@ -17,6 +17,8 @@
   /* Typography */
   --font-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
   --font-sans: 'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  /* Decorative script — sparing use only (a short phrase here and there), never body copy. */
+  --font-script: 'Parisienne', 'Brush Script MT', cursive;
 
   /* Fluid type scale */
   --fs-name: clamp(2.75rem, 8vw + 1rem, 6.5rem);
@@ -160,6 +162,36 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 }
 
 /* ==================================================================
+   FLORAL DECORATION SYSTEM
+   Reusable botanical SVG assets (assets/florals/) positioned as
+   absolute corner accents. Each corner-* asset is drawn anchored at
+   its own bottom-left, so the four corner placements below are all
+   produced from the SAME file via CSS mirror/rotate — no per-corner
+   duplicate assets needed.
+   ================================================================== */
+.floral {
+  position: absolute;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.92;
+  width: clamp(120px, 20vw, 230px);
+  height: auto;
+}
+.floral--tl { top: -4%; left: -4%; transform: scaleX(-1); }
+.floral--tr { top: -4%; right: -4%; transform: rotate(180deg); }
+.floral--bl { bottom: -4%; left: -4%; }
+.floral--br { bottom: -4%; right: -4%; transform: scaleY(-1); }
+
+.floral--hero { width: clamp(150px, 26vw, 300px); opacity: 0.85; }
+.floral--media { width: clamp(110px, 18vw, 190px); }
+.floral--rsvp { width: clamp(90px, 14vw, 150px); opacity: 0.8; }
+.floral--closing { width: clamp(130px, 20vw, 220px); opacity: 0.75; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .floral { transition: opacity 0.3s ease; }
+}
+
+/* ==================================================================
    HEADER / NAVIGATION
    ================================================================== */
 .site-header {
@@ -295,18 +327,6 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   inset: 0;
   background: linear-gradient(180deg, rgba(63, 57, 54, 0.35) 0%, rgba(63, 57, 54, 0.55) 55%, rgba(91, 31, 42, 0.75) 100%);
 }
-.hero__leaf {
-  position: absolute;
-  width: 220px;
-  height: 220px;
-  border: 1px solid rgba(216, 191, 163, 0.35);
-  border-radius: 50% 0;
-  z-index: 1;
-  pointer-events: none;
-}
-.hero__leaf--one { top: 6%; left: -60px; transform: rotate(20deg); }
-.hero__leaf--two { bottom: 10%; right: -70px; transform: rotate(-30deg); }
-
 .hero__content {
   position: relative;
   z-index: 2;
@@ -338,7 +358,14 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   font-style: italic;
   font-size: 1.3rem;
   color: var(--blush);
+  margin-bottom: 0.6rem;
+}
+.hero__tagline {
+  font-family: var(--font-script);
+  font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+  color: var(--champagne);
   margin-bottom: 2.2rem;
+  line-height: 1;
 }
 .hero__rsvp { min-width: 160px; }
 
@@ -371,15 +398,12 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   .hero__scroll-line { animation: none; }
 }
 
-@media (min-width: 768px) {
-  .hero__leaf { width: 320px; height: 320px; }
-}
-
 /* ==================================================================
    OUR STORY
    ================================================================== */
 .story { padding: var(--section-pad-y) var(--gutter); max-width: var(--max-width); margin: 0 auto; }
 .story__inner { display: flex; flex-direction: column; gap: 2.5rem; }
+.story__media { position: relative; }
 .story__media img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
 .story__content { max-width: 640px; margin: 0 auto; text-align: center; }
 .story__text {
@@ -431,6 +455,7 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
    THE WEDDING
    ================================================================== */
 .wedding { padding: var(--section-pad-y) var(--gutter); max-width: 980px; margin: 0 auto; text-align: center; }
+.wedding__sprig { width: 72px; height: auto; margin: 1.25rem auto 0; opacity: 0.85; }
 .wedding__grid {
   display: flex;
   flex-direction: column;
@@ -477,6 +502,18 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   inset: 0;
   background: radial-gradient(circle at 20% 20%, rgba(216, 191, 163, 0.12), transparent 55%);
   pointer-events: none;
+}
+.countdown-section__heading-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+.countdown-section__sprig { display: none; width: 90px; height: auto; opacity: 0.8; flex-shrink: 0; }
+.countdown-section__sprig--flip { transform: scaleX(-1); }
+@media (min-width: 640px) {
+  .countdown-section__sprig { display: block; }
 }
 .countdown {
   position: relative;
@@ -550,6 +587,7 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
    VENUE
    ================================================================== */
 .venue { position: relative; }
+.venue__media { position: relative; }
 .venue__media img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
 .venue__content {
   padding: 3rem var(--gutter);
@@ -568,6 +606,12 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
    ================================================================== */
 .travel { padding: var(--section-pad-y) var(--gutter); max-width: 980px; margin: 0 auto; text-align: center; }
 .travel__grid { display: flex; flex-direction: column; gap: 3rem; margin-top: 3rem; }
+.travel__icon {
+  width: 30px;
+  height: 30px;
+  color: var(--burgundy);
+  margin-bottom: 1rem;
+}
 .travel__label {
   font-size: var(--fs-eyebrow);
   letter-spacing: 0.24em;
@@ -577,10 +621,34 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 }
 .travel__name { font-family: var(--font-serif); font-size: 1.5rem; color: var(--burgundy); margin-bottom: 0.4rem; }
 .travel__detail { opacity: 0.85; margin-bottom: 1.1rem; }
+.travel__tips {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  max-width: 260px;
+  margin: 0 auto;
+}
+.travel__tips li {
+  position: relative;
+  padding-left: 1.1rem;
+  opacity: 0.85;
+  font-size: var(--fs-small);
+}
+.travel__tips li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--champagne);
+}
 
 @media (min-width: 768px) {
-  .travel__grid { flex-direction: row; justify-content: center; }
-  .travel__col { flex: 1; max-width: 340px; }
+  .travel__grid { flex-direction: row; justify-content: center; align-items: flex-start; }
+  .travel__col { flex: 1; max-width: 320px; }
 }
 
 /* ==================================================================
@@ -596,12 +664,14 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   margin-bottom: 2rem;
   letter-spacing: 0.04em;
 }
+.people__sprig { display: block; width: 64px; height: auto; margin: 1rem auto 0; opacity: 0.85; }
 .people__grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.75rem 1.5rem;
 }
-.people__card { text-align: center; }
+.people__card { width: calc(50% - 0.75rem); text-align: center; }
 .people__photo {
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -618,7 +688,7 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 }
 
 @media (min-width: 600px) {
-  .people__grid { grid-template-columns: repeat(3, 1fr); }
+  .people__card { width: calc(33.333% - 1rem); }
 }
 
 /* ==================================================================
@@ -642,22 +712,24 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 .gallery__item--large img { aspect-ratio: 4 / 5; }
 .gallery__item--small img { aspect-ratio: 1 / 1; }
 .gallery__item--wide img { aspect-ratio: 16 / 9; }
+.gallery__item--portrait img { aspect-ratio: 3 / 4; }
+.gallery__sprig { display: block; width: 130px; height: auto; margin: 1.25rem auto 0; opacity: 0.85; }
 
 @media (min-width: 768px) {
   .gallery__grid {
     grid-template-columns: repeat(6, 1fr);
     grid-auto-rows: 140px;
+    grid-auto-flow: dense;
   }
-  .gallery__item--large:nth-of-type(1) { grid-column: span 3; grid-row: span 3; }
-  .gallery__item--small:nth-of-type(2) { grid-column: span 3; grid-row: span 1; }
-  .gallery__item--small:nth-of-type(3) { grid-column: span 3; grid-row: span 2; }
-  .gallery__item--wide:nth-of-type(4) { grid-column: span 6; grid-row: span 2; }
-  .gallery__item--large:nth-of-type(5) { grid-column: span 6; grid-row: span 3; }
+  .gallery__grid > *:nth-of-type(1) { grid-column: span 3; grid-row: span 3; }
+  .gallery__grid > *:nth-of-type(2) { grid-column: span 3; grid-row: span 2; }
+  .gallery__grid > *:nth-of-type(3) { grid-column: span 3; grid-row: span 1; }
+  .gallery__grid > *:nth-of-type(4) { grid-column: span 6; grid-row: span 2; }
+  .gallery__grid > *:nth-of-type(5) { grid-column: span 2; grid-row: span 3; }
+  .gallery__grid > *:nth-of-type(6) { grid-column: span 2; grid-row: span 3; }
+  .gallery__grid > *:nth-of-type(7) { grid-column: span 2; grid-row: span 3; }
+  .gallery__grid > *:nth-of-type(8) { grid-column: span 6; grid-row: span 2; }
   .gallery__grid img { aspect-ratio: auto !important; }
-}
-
-@media (min-width: 1024px) {
-  .gallery__item--large:nth-of-type(5) { grid-column: span 3; }
 }
 
 /* ==================================================================
@@ -671,6 +743,7 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   margin-top: 3rem;
 }
 .registry__item {
+  min-width: 0;
   border: 1px solid var(--champagne);
   padding: 2.25rem 1.5rem;
   display: flex;
@@ -698,11 +771,13 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
    RSVP
    ================================================================== */
 .rsvp {
+  position: relative;
   padding: var(--section-pad-y) var(--gutter);
   max-width: 640px;
   margin: 0 auto;
   text-align: center;
 }
+.rsvp > *:not(.floral) { position: relative; z-index: 3; }
 .rsvp__message {
   font-family: var(--font-serif);
   font-style: italic;
@@ -786,7 +861,8 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   inset: 0;
   background: linear-gradient(180deg, rgba(91, 31, 42, 0.65), rgba(63, 57, 54, 0.75));
 }
-.closing__content { position: relative; z-index: 1; padding: 4rem var(--gutter); }
+.closing__content { position: relative; z-index: 3; padding: 4rem var(--gutter); }
+.floral--closing.floral--tl { top: 3%; left: 3%; }
 .closing__names {
   font-family: var(--font-serif);
   font-size: clamp(2.2rem, 6vw, 3.4rem);

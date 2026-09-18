@@ -59,7 +59,9 @@ const wedding = {
   // Hero section background photo (replace with your own image).
   hero: {
     image: "assets/images/hero.svg",
-    eyebrow: "We're Getting Married"
+    eyebrow: "We're Getting Married",
+    // Short decorative phrase, set in a script font. Keep it brief — one line.
+    tagline: "Love, laughter, and happily ever after"
   },
 
   // EDIT YOUR STORY HERE
@@ -101,7 +103,15 @@ const wedding = {
       addressLine1: "20 Rose Avenue",
       addressLine2: "Meadowbrook",
       url: "https://www.booking.com"
-    }
+    },
+    // A short list of helpful notes for guests. Add, remove, or edit freely.
+    tips: [
+      "Book flights early for the best rates.",
+      "Consider travel insurance.",
+      "Pack for warm, sunny weather.",
+      "Don't forget comfortable shoes!",
+      "Extend your stay and explore Meadowbrook."
+    ]
   },
 
   // EDIT YOUR WEDDING PARTY HERE — add, remove, or edit any entry.
@@ -125,14 +135,19 @@ const wedding = {
     }
   },
 
-  // EDIT YOUR PHOTOS HERE — the gallery uses five images in an
-  // editorial, asymmetric layout (large / two small / wide / large).
+  // EDIT YOUR PHOTOS HERE — the gallery uses eight images in an
+  // editorial, asymmetric layout. Each entry's "size" controls its
+  // shape in the grid: "large" (tall), "small" (square), "wide"
+  // (full-width landscape), or "portrait" (medium tall).
   gallery: [
     { image: "assets/images/gallery-1.svg", alt: "The couple sharing a quiet moment", size: "large" },
     { image: "assets/images/gallery-2.svg", alt: "Detail from the proposal", size: "small" },
     { image: "assets/images/gallery-3.svg", alt: "Golden hour together", size: "small" },
     { image: "assets/images/gallery-4.svg", alt: "A candid moment of laughter", size: "wide" },
-    { image: "assets/images/gallery-5.svg", alt: "Walking hand in hand", size: "large" }
+    { image: "assets/images/gallery-6.svg", alt: "A quiet walk through the garden", size: "portrait" },
+    { image: "assets/images/gallery-7.svg", alt: "Details from the day", size: "portrait" },
+    { image: "assets/images/gallery-5.svg", alt: "Walking hand in hand", size: "large" },
+    { image: "assets/images/gallery-8.svg", alt: "The estate at sunset", size: "wide" }
   ],
 
   // EDIT YOUR REGISTRY LINKS HERE

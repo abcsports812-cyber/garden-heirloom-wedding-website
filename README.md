@@ -19,6 +19,7 @@ the-garden-heirloom/
 ├── CUSTOMIZATION_GUIDE.md    ← detailed section-by-section editing guide
 └── assets/
     ├── images/                ← your photos go here
+    ├── florals/                ← reusable decorative botanical accents (optional to edit)
     └── icons/                 ← the browser tab icon
 ```
 
