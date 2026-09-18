@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800" role="img" aria-label="Decorative botanical placeholder">
+  
+    <defs>
+      <linearGradient id="g12" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#F2C6B4" stop-opacity="0.55"/>
+        <stop offset="100%" stop-color="#FBF3EC" stop-opacity="1"/>
+      </linearGradient>
+      <radialGradient id="rg12" cx="30%" cy="20%" r="75%">
+        <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.35"/>
+        <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    
+  <rect width="800" height="800" fill="url(#g12)"/>
+  <rect width="800" height="800" fill="url(#rg12)"/>
+  <line x1="64.0" y1="48.0" x2="269.5" y2="-352.2" stroke="#5B1F2A" stroke-width="2.0" stroke-opacity="0.28" stroke-linecap="round"/><path d="M98.2,-18.7 Q81.1,-30.8 60.5,-27.1 Q77.6,-15.0 98.2,-18.7 Z" fill="#5B1F2A" fill-opacity="0.18"/><path d="M132.5,-85.4 Q141.2,-74.7 155.0,-73.5 Q146.2,-84.2 132.5,-85.4 Z" fill="#5B1F2A" fill-opacity="0.20"/><path d="M166.7,-152.1 Q152.6,-160.3 137.0,-155.9 Q151.0,-147.8 166.7,-152.1 Z" fill="#5B1F2A" fill-opacity="0.22"/><path d="M201.0,-218.8 Q211.4,-204.5 228.9,-202.0 Q218.5,-216.3 201.0,-218.8 Z" fill="#5B1F2A" fill-opacity="0.24"/><path d="M235.2,-285.5 Q220.0,-297.8 200.5,-295.6 Q215.8,-283.3 235.2,-285.5 Z" fill="#5B1F2A" fill-opacity="0.26"/><path d="M269.5,-352.2 Q284.2,-365.1 286.0,-384.5 Q271.3,-371.7 269.5,-352.2 Z" fill="#5B1F2A" fill-opacity="0.28"/><line x1="760.0" y1="40.0" x2="450.5" y2="-347.5" stroke="#6D7659" stroke-width="2.2" stroke-opacity="0.28" stroke-linecap="round"/><path d="M708.4,-24.6 Q689.1,-17.6 680.6,1.0 Q699.9,-5.9 708.4,-24.6 Z" fill="#6D7659" fill-opacity="0.18"/><path d="M656.8,-89.2 Q679.2,-94.6 691.0,-114.4 Q668.6,-109.0 656.8,-89.2 Z" fill="#6D7659" fill-opacity="0.20"/><path d="M605.2,-153.8 Q587.2,-147.3 579.1,-129.9 Q597.2,-136.3 605.2,-153.8 Z" fill="#6D7659" fill-opacity="0.22"/><path d="M553.7,-218.3 Q576.7,-218.5 592.7,-235.1 Q569.7,-234.9 553.7,-218.3 Z" fill="#6D7659" fill-opacity="0.24"/><path d="M502.1,-282.9 Q483.4,-273.2 477.2,-253.0 Q495.9,-262.8 502.1,-282.9 Z" fill="#6D7659" fill-opacity="0.26"/><path d="M450.5,-347.5 Q444.3,-368.1 425.5,-378.8 Q431.8,-358.1 450.5,-347.5 Z" fill="#6D7659" fill-opacity="0.28"/>
+  <rect x="22.4" y="22.4" width="755.2" height="755.2" fill="none" stroke="#FBF3EC" stroke-opacity="0.55" stroke-width="1.5"/>
+  
+</svg>

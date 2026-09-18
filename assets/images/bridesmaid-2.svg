@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800" role="img" aria-label="Decorative botanical placeholder">
+  
+    <defs>
+      <linearGradient id="g32" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#F2C6B4" stop-opacity="0.55"/>
+        <stop offset="100%" stop-color="#FBF3EC" stop-opacity="1"/>
+      </linearGradient>
+      <radialGradient id="rg32" cx="30%" cy="20%" r="75%">
+        <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.35"/>
+        <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    
+  <rect width="800" height="800" fill="url(#g32)"/>
+  <rect width="800" height="800" fill="url(#rg32)"/>
+  <line x1="760.0" y1="784.0" x2="441.4" y2="1145.3" stroke="#5B1F2A" stroke-width="2.1" stroke-opacity="0.28" stroke-linecap="round"/><path d="M706.9,844.2 Q714.3,858.8 730.0,863.7 Q722.5,849.1 706.9,844.2 Z" fill="#5B1F2A" fill-opacity="0.18"/><path d="M653.8,904.4 Q645.9,886.9 627.8,880.3 Q635.7,897.8 653.8,904.4 Z" fill="#5B1F2A" fill-opacity="0.20"/><path d="M600.7,964.7 Q610.0,980.5 627.8,985.0 Q618.5,969.1 600.7,964.7 Z" fill="#5B1F2A" fill-opacity="0.22"/><path d="M547.6,1024.9 Q545.2,1005.8 529.9,994.2 Q532.3,1013.3 547.6,1024.9 Z" fill="#5B1F2A" fill-opacity="0.24"/><path d="M494.5,1085.1 Q502.3,1100.8 518.9,1106.3 Q511.1,1090.6 494.5,1085.1 Z" fill="#5B1F2A" fill-opacity="0.26"/><path d="M441.4,1145.3 Q422.7,1154.8 415.7,1174.5 Q434.4,1165.0 441.4,1145.3 Z" fill="#5B1F2A" fill-opacity="0.28"/><line x1="760.0" y1="40.0" x2="488.5" y2="-403.5" stroke="#6D7659" stroke-width="2.3" stroke-opacity="0.28" stroke-linecap="round"/><path d="M714.7,-33.9 Q698.0,-26.9 691.3,-10.1 Q708.0,-17.1 714.7,-33.9 Z" fill="#6D7659" fill-opacity="0.18"/><path d="M669.5,-107.8 Q693.6,-105.4 712.3,-120.9 Q688.2,-123.3 669.5,-107.8 Z" fill="#6D7659" fill-opacity="0.20"/><path d="M624.2,-181.8 Q608.0,-175.0 601.4,-158.6 Q617.7,-165.4 624.2,-181.8 Z" fill="#6D7659" fill-opacity="0.22"/><path d="M579.0,-255.7 Q601.6,-252.1 619.9,-265.8 Q597.3,-269.3 579.0,-255.7 Z" fill="#6D7659" fill-opacity="0.24"/><path d="M533.7,-329.6 Q518.0,-326.4 509.3,-313.0 Q525.0,-316.2 533.7,-329.6 Z" fill="#6D7659" fill-opacity="0.26"/><path d="M488.5,-403.5 Q484.7,-425.8 466.6,-439.3 Q470.4,-417.0 488.5,-403.5 Z" fill="#6D7659" fill-opacity="0.28"/>
+  <rect x="22.4" y="22.4" width="755.2" height="755.2" fill="none" stroke="#FBF3EC" stroke-opacity="0.55" stroke-width="1.5"/>
+  
+</svg>

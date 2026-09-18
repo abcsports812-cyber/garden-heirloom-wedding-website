@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1250" width="1000" height="1250" role="img" aria-label="Decorative botanical placeholder">
+  
+    <defs>
+      <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#D8BFA3" stop-opacity="0.55"/>
+        <stop offset="100%" stop-color="#FBF3EC" stop-opacity="1"/>
+      </linearGradient>
+      <radialGradient id="rg2" cx="30%" cy="20%" r="75%">
+        <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.35"/>
+        <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    
+  <rect width="1000" height="1250" fill="url(#g2)"/>
+  <rect width="1000" height="1250" fill="url(#rg2)"/>
+  <line x1="950.0" y1="1225.0" x2="568.1" y2="1894.4" stroke="#5B1F2A" stroke-width="2.2" stroke-opacity="0.28" stroke-linecap="round"/><path d="M886.3,1336.6 Q899.9,1352.9 920.9,1354.6 Q907.4,1338.3 886.3,1336.6 Z" fill="#5B1F2A" fill-opacity="0.18"/><path d="M822.7,1448.1 Q813.1,1427.0 791.3,1419.1 Q800.9,1440.2 822.7,1448.1 Z" fill="#5B1F2A" fill-opacity="0.20"/><path d="M759.0,1559.7 Q770.8,1572.4 788.1,1572.8 Q776.4,1560.2 759.0,1559.7 Z" fill="#5B1F2A" fill-opacity="0.22"/><path d="M695.4,1671.3 Q687.3,1652.1 668.0,1644.5 Q676.1,1663.6 695.4,1671.3 Z" fill="#5B1F2A" fill-opacity="0.24"/><path d="M631.7,1782.8 Q646.2,1798.1 667.2,1798.4 Q652.8,1783.1 631.7,1782.8 Z" fill="#5B1F2A" fill-opacity="0.26"/><path d="M568.1,1894.4 Q551.3,1907.7 548.4,1928.9 Q565.2,1915.6 568.1,1894.4 Z" fill="#5B1F2A" fill-opacity="0.28"/><line x1="950.0" y1="62.5" x2="504.4" y2="-730.4" stroke="#6D7659" stroke-width="2.6" stroke-opacity="0.28" stroke-linecap="round"/><path d="M875.7,-69.6 Q859.6,-61.8 853.9,-44.8 Q870.0,-52.6 875.7,-69.6 Z" fill="#6D7659" fill-opacity="0.18"/><path d="M801.5,-201.8 Q820.7,-199.0 836.1,-210.8 Q816.9,-213.6 801.5,-201.8 Z" fill="#6D7659" fill-opacity="0.20"/><path d="M727.2,-333.9 Q711.0,-326.0 705.4,-308.9 Q721.6,-316.8 727.2,-333.9 Z" fill="#6D7659" fill-opacity="0.22"/><path d="M652.9,-466.1 Q677.2,-461.3 697.6,-475.4 Q673.3,-480.1 652.9,-466.1 Z" fill="#6D7659" fill-opacity="0.24"/><path d="M578.6,-598.2 Q553.0,-587.0 543.1,-560.8 Q568.7,-572.0 578.6,-598.2 Z" fill="#6D7659" fill-opacity="0.26"/><path d="M504.4,-730.4 Q501.0,-755.4 481.4,-771.3 Q484.7,-746.2 504.4,-730.4 Z" fill="#6D7659" fill-opacity="0.28"/><line x1="50.0" y1="1212.5" x2="519.7" y2="1780.1" stroke="#D8BFA3" stroke-width="2.1" stroke-opacity="0.28" stroke-linecap="round"/><path d="M128.3,1307.1 Q145.1,1299.6 151.5,1282.4 Q134.7,1289.9 128.3,1307.1 Z" fill="#D8BFA3" fill-opacity="0.18"/><path d="M206.6,1401.7 Q188.6,1404.4 178.0,1419.1 Q195.9,1416.4 206.6,1401.7 Z" fill="#D8BFA3" fill-opacity="0.20"/><path d="M284.8,1496.3 Q302.8,1487.9 309.4,1469.2 Q291.4,1477.6 284.8,1496.3 Z" fill="#D8BFA3" fill-opacity="0.22"/><path d="M363.1,1590.9 Q343.8,1594.9 333.2,1611.4 Q352.5,1607.5 363.1,1590.9 Z" fill="#D8BFA3" fill-opacity="0.24"/><path d="M441.4,1685.5 Q457.6,1680.6 465.4,1665.5 Q449.2,1670.5 441.4,1685.5 Z" fill="#D8BFA3" fill-opacity="0.26"/><path d="M519.7,1780.1 Q525.9,1799.6 543.9,1809.4 Q537.6,1789.9 519.7,1780.1 Z" fill="#D8BFA3" fill-opacity="0.28"/>
+  <rect x="28.0" y="35.0" width="944.0" height="1180.0" fill="none" stroke="#FBF3EC" stroke-opacity="0.55" stroke-width="1.6"/>
+  
+</svg>
