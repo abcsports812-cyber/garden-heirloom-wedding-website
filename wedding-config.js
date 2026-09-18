@@ -12,11 +12,16 @@
       own information. Do not delete the quotes or commas.
    3. Save the file and refresh index.html in your browser.
 
-   Need more help? See README.md and CUSTOMIZATION_GUIDE.md.
+   Need more help? See README.md in this folder, or the full
+   CUSTOMIZATION-GUIDE.pdf in the GUIDES folder that came with
+   your download.
    ============================================================ */
 
 const wedding = {
 
+  // ================================
+  // COUPLE INFORMATION
+  // ================================
   // EDIT YOUR NAMES HERE
   couple: {
     partner1: "Olivia",
@@ -25,6 +30,9 @@ const wedding = {
     monogram: "O & J"
   },
 
+  // ================================
+  // DATE & COUNTDOWN
+  // ================================
   // EDIT YOUR WEDDING DATE HERE
   date: {
     // Friendly display text used throughout the site.
@@ -44,6 +52,9 @@ const wedding = {
     iso: "2027-06-12T16:00:00-07:00",
   },
 
+  // ================================
+  // VENUE
+  // ================================
   // EDIT YOUR VENUE HERE
   venue: {
     name: "The Willow Estate",
@@ -54,6 +65,9 @@ const wedding = {
     image: "assets/images/venue.svg"
   },
 
+  // ================================
+  // CEREMONY & RECEPTION
+  // ================================
   ceremony: {
     time: "4:00 PM",
     details: "The Willow Estate, Garden Pavilion",
@@ -65,6 +79,9 @@ const wedding = {
     details: "Dinner • Dancing • Celebration"
   },
 
+  // ================================
+  // HERO SECTION
+  // ================================
   // Hero section background photo (replace with your own image).
   hero: {
     image: "assets/images/hero.svg",
@@ -73,6 +90,9 @@ const wedding = {
     tagline: "Love, laughter, and happily ever after"
   },
 
+  // ================================
+  // OUR STORY
+  // ================================
   // EDIT YOUR STORY HERE
   story: {
     heading: "Our Story",
@@ -87,6 +107,9 @@ const wedding = {
     ]
   },
 
+  // ================================
+  // THE DAY (ORDER OF EVENTS)
+  // ================================
   // Decorative panel shown beside the day's schedule on wider screens.
   day: {
     image: "assets/images/day.svg"
@@ -104,6 +127,9 @@ const wedding = {
     { time: "8:30 PM", title: "Dancing & Celebration" }
   ],
 
+  // ================================
+  // TRAVEL & STAY
+  // ================================
   // Travel & accommodation information for out-of-town guests.
   travel: {
     image: "assets/images/travel-scenery.svg",
@@ -129,6 +155,9 @@ const wedding = {
     ]
   },
 
+  // ================================
+  // WEDDING PARTY
+  // ================================
   // EDIT YOUR WEDDING PARTY HERE — add, remove, or edit any entry.
   // EDIT YOUR PHOTOS HERE — point "image" at your own photo files.
   people: {
@@ -150,6 +179,9 @@ const wedding = {
     }
   },
 
+  // ================================
+  // GALLERY
+  // ================================
   // EDIT YOUR PHOTOS HERE — the gallery uses eight images in an
   // editorial, asymmetric layout. Each entry's "size" controls its
   // shape in the grid: "large" (tall), "small" (square), "wide"
@@ -165,6 +197,9 @@ const wedding = {
     { image: "assets/images/gallery-8.svg", alt: "The estate at sunset", size: "wide" }
   ],
 
+  // ================================
+  // REGISTRY
+  // ================================
   // EDIT YOUR REGISTRY LINKS HERE
   registry: [
     { name: "Amazon", url: "https://www.amazon.com/" },
@@ -173,6 +208,9 @@ const wedding = {
     { name: "Honeyfund", url: "https://www.honeyfund.com/" }
   ],
 
+  // ================================
+  // RSVP
+  // ================================
   // EDIT YOUR RSVP LINK HERE — this should point to your Google
   // Form, Zola RSVP page, or other external RSVP service. This
   // website does not collect or store RSVP responses itself.
@@ -183,6 +221,9 @@ const wedding = {
     image: "assets/images/rsvp-bg.svg"
   },
 
+  // ================================
+  // FAQ
+  // ================================
   // Decorative panel shown beside the FAQ list on wider screens.
   faqImage: "assets/images/faq.svg",
 
@@ -222,11 +263,17 @@ const wedding = {
     }
   ],
 
+  // ================================
+  // CLOSING SECTION
+  // ================================
   closing: {
     message: "Thank you for celebrating this beautiful beginning with us.",
     image: "assets/images/closing.svg"
   },
 
+  // ================================
+  // SITE TITLE / DESCRIPTION
+  // ================================
   // Site metadata used for the browser tab and social sharing.
   meta: {
     siteTitle: "Elegant Garden Wedding — Luxury Wedding Website Template",

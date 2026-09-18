@@ -1,27 +1,28 @@
 # The Garden Heirloom
 ### Luxury Editable Wedding Website Template
 
-Thank you for choosing **The Garden Heirloom** — a premium, mobile-first wedding website template built with plain HTML, CSS, and JavaScript. No coding experience, no build tools, and no subscriptions required.
+Thank you for choosing **The Garden Heirloom** — a premium, mobile-first wedding website template built with plain HTML, CSS, and JavaScript. No coding experience is required for the normal customization process. You only need to edit the clearly marked text in wedding-config.js; no build tools or paid website builder are required.
 
-This guide will walk you through personalizing and publishing your website, step by step.
+This guide will walk you through personalizing and publishing your website, step by step. For the full illustrated guides (with pictures and beginner-by-beginner instructions), see the **GUIDES** folder that came with your download — start with **START-HERE.pdf**.
 
 ---
 
-## 1. What's Included
+## 1. What's Included (this folder)
 
 ```
-the-garden-heirloom/
+WEBSITE/
 ├── index.html               ← the website itself (don't need to edit much)
 ├── style.css                ← all design/styling
 ├── script.js                ← all interactive behavior
 ├── wedding-config.js         ← ⭐ THE ONLY FILE YOU NEED TO EDIT
-├── README.md                 ← this file
-├── CUSTOMIZATION_GUIDE.md    ← detailed section-by-section editing guide
+├── README.md                 ← this file (a quick technical reference)
 └── assets/
     ├── images/                ← your photos go here
     ├── florals/                ← reusable decorative botanical accents (optional to edit)
     └── icons/                 ← the browser tab icon
 ```
+
+This `WEBSITE` folder is one part of your full download — it sits alongside a `GUIDES` folder with step-by-step PDF instructions. This file is a fast technical reference for anyone comfortable skimming a file list; if you'd rather follow along visually, use the GUIDES instead.
 
 ---
 
@@ -56,7 +57,7 @@ Open the file and you'll see a single JavaScript object called `wedding`, organi
 | `daySchedule` | The order-of-events timeline for your wedding day |
 | `travel` | Airport and hotel information for guests |
 | `people` | Bridesmaids and groomsmen — names, roles, and photos |
-| `gallery` | Five gallery photos |
+| `gallery` | Eight gallery photos |
 | `registry` | Registry names and links |
 | `rsvp` | RSVP deadline, external RSVP link, and message |
 | `faq` | Your FAQ questions and answers |
@@ -69,13 +70,13 @@ Every value is plain text inside quotation marks `" "`. To edit:
 - Never delete the quotes, commas, or curly braces `{ }`.
 - Save the file when you're done — the website updates automatically the next time you open or refresh `index.html`.
 
-For a detailed, section-by-section walkthrough, see **CUSTOMIZATION_GUIDE.md**.
+For a detailed, section-by-section walkthrough with examples for every field, see **CUSTOMIZATION-GUIDE.pdf** in the GUIDES folder.
 
 ---
 
 ## 4. Replacing Photos
 
-**About the demo images:** every photo-shaped area in this template ships with an original, procedurally-generated placeholder — a warm, soft-focus "editorial light" graphic (SVG, not a real photograph) designed to preview the layout, cropping, and color mood without using anyone else's photography. Nothing in `assets/images/` or `assets/florals/` was copied, scraped, or extracted from any other website, template, or stock library, so there is no copyright concern in using or reselling this template as-is. That said, **the demo images are a placeholder, not a finished product** — replace them with your own real wedding/engagement photos (or photography you've properly licensed) before publishing:
+**About the demo images:** every photo-shaped area in this template ships with an original, procedurally-generated placeholder — a warm, soft-focus "editorial light" graphic (SVG, not a real photograph) designed to preview the layout, cropping, and color mood without using anyone else's photography. Nothing in `assets/images/` or `assets/florals/` was copied, scraped, or extracted from any other website, template, or stock library. The included placeholder artwork is original to this template and is provided as part of your licensed template package. You may use the template according to the License & Terms included with your download. That said, **the demo images are a placeholder, not a finished product** — replace them with your own real wedding/engagement photos (or photography you've properly licensed) before publishing:
 
 1. Add your photo files to `assets/images/`.
 2. Use clear file names (e.g. `hero.jpg`, `story.jpg`, `venue.jpg`).
@@ -119,23 +120,15 @@ Resize your browser window from narrow (mobile) to wide (desktop) to confirm the
 
 ## 6. Publishing Your Website
 
-Once you're happy with your site, you can publish it for free (or nearly free) using any of these beginner-friendly options:
+Once you're happy with your site, the easiest free way to put it online — no account, no coding, no command line — is **Netlify Drop**:
 
-**Netlify Drop** (easiest)
 1. Go to [app.netlify.com/drop](https://app.netlify.com/drop)
-2. Drag your entire `the-garden-heirloom` folder into the browser window
+2. Drag your entire website folder into the browser window
 3. Netlify gives you a live link instantly — share it with your guests
 
-**GitHub Pages**
-1. Create a free GitHub account and a new repository
-2. Upload all the template files
-3. Enable "GitHub Pages" in the repository settings
-4. Your site will be live at `https://yourusername.github.io/your-repo-name`
+For the full step-by-step walkthrough (screen-by-screen guidance, how to get a nicer link, and how to use your own domain name if you'd like one), see **PUBLISHING-GUIDE.pdf** in the GUIDES folder that came with your download.
 
-**Your own hosting**
-Upload the entire folder via FTP to any standard web host — the site is plain HTML/CSS/JS and works anywhere.
-
-Once live, you can connect a custom domain (e.g. `oliviaandjames.com`) through most of these hosts if you'd like.
+If you already have your own web hosting, you can also upload the entire folder via FTP to any standard host — the site is plain HTML/CSS/JS and works anywhere.
 
 ---
 
