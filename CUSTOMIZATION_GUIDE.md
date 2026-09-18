@@ -22,11 +22,11 @@ Replace `partner1` and `partner2` with your first names. `monogram` is the short
 ```js
 date: {
   display: "Saturday, 12 June 2027",
-  iso: "2027-06-12T16:00:00"
+  iso: "2027-06-12T16:00:00-07:00"
 }
 ```
 - `display` is the friendly text shown throughout the site.
-- `iso` powers the **live countdown** — use the format `YYYY-MM-DDTHH:MM:SS` in 24-hour time, matching your ceremony start time. For example, 4:00 PM becomes `T16:00:00`.
+- `iso` powers the **live countdown** — use the format `YYYY-MM-DDTHH:MM:SS±HH:MM` in 24-hour time, matching your ceremony start time **and your venue's UTC offset**. For example, 4:00 PM Pacific time in summer becomes `T16:00:00-07:00`. Including the offset means every guest sees an accurate countdown no matter their own timezone. Not sure of your offset? Search "[your city] UTC offset" — common ones are listed as comments right above this field in the file.
 
 ---
 
@@ -50,11 +50,12 @@ venue: {
   name: "The Willow Estate",
   addressLine1: "125 Garden Lane",
   addressLine2: "Meadowbrook",
+  description: "A breathtaking historic estate surrounded by gardens...",
   mapsUrl: "https://www.google.com/maps",
   image: "assets/images/venue.svg"
 }
 ```
-Update the name, address, and `mapsUrl` (open Google Maps, search your venue, click "Share," and copy the link). This powers the "View Location" and "View Map" buttons.
+Update the name, address, `description` (a short couple of sentences shown in the Venue section), and `mapsUrl` (open Google Maps, search your venue, click "Share," and copy the link). This powers the "View Location" and "View Map" buttons.
 
 ---
 
@@ -162,7 +163,7 @@ gallery: [
   { image: "assets/images/gallery-8.svg", alt: "The estate at sunset", size: "wide" }
 ]
 ```
-This section uses exactly **eight images** in a fixed editorial mosaic (large / small / small / wide / portrait / portrait / large / wide). Replace the `image` paths with your own photos and update the `alt` text to describe each photo (important for accessibility). Keep the `size` values, and their order, as-is unless you also adjust the gallery CSS in `style.css`.
+This section uses exactly **eight images** in a fixed editorial mosaic (large / small / small / wide / portrait / portrait / large / wide). Replace the `image` paths with your own photos and update the `alt` text to describe each photo (important for accessibility). Keep the `size` values, and their order, as-is unless you also adjust the gallery CSS in `style.css`. Clicking any gallery photo opens it larger in a lightbox (closes with the × button, a click outside the photo, or the Escape key) — no setup needed, this works automatically.
 
 ---
 
@@ -190,7 +191,9 @@ rsvp: {
   image: "assets/images/rsvp-bg.svg"
 }
 ```
-Set your RSVP deadline and paste the link to your external RSVP form (Google Forms, Zola, Typeform, etc.). This website links out to that form — it does not collect responses itself. `image` is a soft background photo shown behind the RSVP card (veiled under a light overlay, so keep the RSVP text as the focal point rather than a busy photo).
+Set your RSVP deadline and paste the link to your external RSVP form (Google Forms, Zola, Typeform, etc.). `image` is a soft background photo shown behind the RSVP card (veiled under a light overlay, so keep the RSVP text as the focal point rather than a busy photo).
+
+**About the RSVP form on the page:** guests see a real form (name, attending yes/no, guest count, notes) so they can think through their answer — but since this is a simple website with no server or database, it genuinely cannot receive or store that data. Clicking "Submit RSVP" opens your `url` above in a new tab so the guest completes their actual RSVP there. This is intentional and disclosed to guests in the small note under the button — please don't remove that note, since it's what keeps the form honest about what it does.
 
 ---
 

@@ -24,6 +24,10 @@
     initFaq();
     initReveal();
     initCountdown();
+    initHeaderScroll();
+    initActiveNav();
+    initRsvpForm();
+    initLightbox();
 
     var yearEl = document.getElementById('footer-year');
     if (yearEl) yearEl.textContent = String(new Date().getFullYear());
@@ -52,6 +56,7 @@
     setText('hero-names', names);
     setText('hero-date', cfg.date.display);
     setText('hero-venue', cfg.venue.name);
+    setText('hero-address', cfg.venue.addressLine1 + ', ' + cfg.venue.addressLine2);
     setText('hero-tagline', cfg.hero.tagline);
     setImg('hero-image', cfg.hero.image, names + ' — ' + cfg.venue.name);
 
@@ -86,6 +91,7 @@
 
     // Venue
     setText('venue-heading', cfg.venue.name);
+    setText('venue-description', cfg.venue.description);
     setAddress('venue-address', cfg.venue.addressLine1, cfg.venue.addressLine2);
     setHref('venue-map-link', cfg.venue.mapsUrl);
     setImg('venue-image', cfg.venue.image, cfg.venue.name);
@@ -109,13 +115,19 @@
     renderList('groomsmen-grid', cfg.people.groomsmen.members, renderPersonCard);
 
     // Gallery
-    renderList('gallery-grid', cfg.gallery, function (item) {
+    renderList('gallery-grid', cfg.gallery, function (item, index) {
       var figure = renderEl('figure', { class: 'gallery__item gallery__item--' + item.size }, []);
+      var button = renderEl('button', {
+        type: 'button',
+        class: 'gallery__trigger',
+        'aria-label': 'View larger image' + (item.alt ? ': ' + item.alt : ' ' + (index + 1))
+      }, []);
       var img = document.createElement('img');
       img.src = item.image;
       img.alt = item.alt || '';
       img.loading = 'lazy';
-      figure.appendChild(img);
+      button.appendChild(img);
+      figure.appendChild(button);
       return figure;
     });
 
@@ -136,7 +148,6 @@
     setImg('rsvp-image', cfg.rsvp.image, '');
     setText('rsvp-message', cfg.rsvp.message);
     setText('rsvp-deadline', cfg.rsvp.deadline);
-    setHref('rsvp-link', cfg.rsvp.url);
 
     // FAQ
     renderFaq(cfg.faq);
@@ -232,7 +243,7 @@
     var menu = document.getElementById('mobile-menu');
     if (!toggle || !menu) return;
 
-    var links = menu.querySelectorAll('a');
+    var links = Array.prototype.slice.call(menu.querySelectorAll('a'));
 
     function openMenu() {
       menu.classList.add('is-open');
@@ -240,6 +251,14 @@
       toggle.setAttribute('aria-expanded', 'true');
       toggle.setAttribute('aria-label', 'Close menu');
       document.body.style.overflow = 'hidden';
+      // Deferred slightly: calling focus() synchronously (or even via
+      // requestAnimationFrame) right after the visibility/opacity change
+      // can silently fail to move focus, since the browser hasn't fully
+      // settled the just-unhidden element's state yet. A short timeout
+      // — after the paint has committed — focuses reliably.
+      if (links[0]) {
+        setTimeout(function () { links[0].focus(); }, 50);
+      }
     }
 
     function closeMenu() {
@@ -263,20 +282,85 @@
     });
 
     document.addEventListener('keydown', function (event) {
-      if (event.key === 'Escape' && menu.classList.contains('is-open')) {
+      if (!menu.classList.contains('is-open')) return;
+
+      if (event.key === 'Escape') {
         closeMenu();
         toggle.focus();
+        return;
+      }
+
+      // Simple focus trap: while the full-screen menu is open, Tab should
+      // cycle only through its own links rather than escaping to content
+      // hidden behind it.
+      if (event.key === 'Tab' && links.length) {
+        var first = links[0];
+        var last = links[links.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
       }
     });
   }
 
   /* ---------------------------------------------------------------
+     Header: subtle background/shadow once the page has scrolled,
+     and an active-section indicator on the nav links.
+     --------------------------------------------------------------- */
+  function initHeaderScroll() {
+    var header = document.getElementById('site-header');
+    if (!header) return;
+
+    function update() {
+      if (window.scrollY > 24) {
+        header.classList.add('is-scrolled');
+      } else {
+        header.classList.remove('is-scrolled');
+      }
+    }
+
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+  }
+
+  function initActiveNav() {
+    var navLinks = Array.prototype.slice.call(document.querySelectorAll('.primary-nav__list a[href^="#"]'));
+    if (!navLinks.length || !('IntersectionObserver' in window)) return;
+
+    var sections = navLinks
+      .map(function (link) {
+        var id = link.getAttribute('href').slice(1);
+        var section = document.getElementById(id);
+        return section ? { link: link, section: section } : null;
+      })
+      .filter(Boolean);
+    if (!sections.length) return;
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var match = sections.find(function (s) { return s.section === entry.target; });
+        if (!match) return;
+        if (entry.isIntersecting) {
+          navLinks.forEach(function (l) { l.classList.remove('is-active'); l.removeAttribute('aria-current'); });
+          match.link.classList.add('is-active');
+          match.link.setAttribute('aria-current', 'true');
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+
+    sections.forEach(function (s) { observer.observe(s.section); });
+  }
+
+  /* ---------------------------------------------------------------
      Countdown
-     Note: the wedding date/time in wedding-config.js is treated as
-     wall-clock time and compared against each visitor's own device
-     clock — the same approach used by most wedding countdown sites.
-     Out-of-town guests will see a countdown to that clock time in
-     their own timezone unless you convert the date yourself.
+     cfg.date.iso includes an explicit UTC offset (e.g. "...-07:00"),
+     so `new Date(...)` resolves to one fixed instant in time — every
+     visitor sees an accurate countdown to your actual ceremony
+     moment, regardless of their own device's timezone.
      --------------------------------------------------------------- */
   function initCountdown() {
     if (!cfg) return;
@@ -365,6 +449,79 @@
   }
 
   /* ---------------------------------------------------------------
+     RSVP form
+     This is a static site with no backend, so it cannot actually
+     receive or store form submissions — pretending otherwise would
+     be dishonest to guests. The fields here let a guest prepare
+     their response; submitting hands off to the real external RSVP
+     service configured in wedding-config.js (rsvp.url), where the
+     response is actually collected.
+     --------------------------------------------------------------- */
+  function initRsvpForm() {
+    var form = document.getElementById('rsvp-form');
+    var note = document.getElementById('rsvp-form-note');
+    if (!form || !cfg) return;
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      if (!form.reportValidity()) return;
+
+      var opened = window.open(cfg.rsvp.url, '_blank', 'noopener,noreferrer');
+      if (note) {
+        note.textContent = opened
+          ? 'Thank you! We opened our RSVP form in a new tab — please finish up there.'
+          : 'Thank you! Please open our RSVP form to finish up: ' + cfg.rsvp.url;
+      }
+    });
+  }
+
+  /* ---------------------------------------------------------------
+     Gallery lightbox
+     --------------------------------------------------------------- */
+  function initLightbox() {
+    var grid = document.getElementById('gallery-grid');
+    var lightbox = document.getElementById('lightbox');
+    var backdrop = document.getElementById('lightbox-backdrop');
+    var closeBtn = document.getElementById('lightbox-close');
+    var lightboxImg = document.getElementById('lightbox-image');
+    if (!grid || !lightbox || !lightboxImg) return;
+
+    var lastTrigger = null;
+
+    function open(trigger) {
+      var img = trigger.querySelector('img');
+      if (!img) return;
+      lastTrigger = trigger;
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightbox.classList.add('is-open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+    }
+
+    function close() {
+      lightbox.classList.remove('is-open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      lightboxImg.src = '';
+      if (lastTrigger) lastTrigger.focus();
+    }
+
+    grid.addEventListener('click', function (event) {
+      var trigger = event.target.closest('.gallery__trigger');
+      if (trigger) open(trigger);
+    });
+
+    if (closeBtn) closeBtn.addEventListener('click', close);
+    if (backdrop) backdrop.addEventListener('click', close);
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && lightbox.classList.contains('is-open')) close();
+    });
+  }
+
+  /* ---------------------------------------------------------------
      Small DOM helpers
      --------------------------------------------------------------- */
   function setText(id, value) {
@@ -403,8 +560,8 @@
     var container = document.getElementById(containerId);
     if (!container || !items) return;
     container.innerHTML = '';
-    items.forEach(function (item) {
-      container.appendChild(itemRenderer(item));
+    items.forEach(function (item, index) {
+      container.appendChild(itemRenderer(item, index));
     });
   }
 

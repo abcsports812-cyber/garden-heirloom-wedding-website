@@ -89,6 +89,7 @@
       <h1 class="hero__names" id="hero-names">Olivia &amp; James</h1>
       <p class="hero__date" id="hero-date">Saturday • 12 June 2027</p>
       <p class="hero__venue" id="hero-venue">The Willow Estate</p>
+      <p class="hero__address" id="hero-address">125 Garden Lane, Meadowbrook</p>
       <p class="hero__tagline" id="hero-tagline">Love, laughter, and happily ever after</p>
       <a href="#rsvp" class="btn btn--outline-light hero__rsvp">RSVP</a>
     </div>
@@ -189,7 +190,9 @@
       <img src="assets/florals/corner-rose-burgundy.svg" alt="" class="floral floral--tr floral--media" aria-hidden="true">
     </div>
     <div class="venue__content reveal-up">
+      <p class="eyebrow">Our Venue</p>
       <h2 class="section-heading" id="venue-heading">The Willow Estate</h2>
+      <p class="venue__description" id="venue-description">A breathtaking historic estate surrounded by gardens.</p>
       <p class="venue__address" id="venue-address">125 Garden Lane<br>Meadowbrook</p>
       <a id="venue-map-link" href="#" target="_blank" rel="noopener noreferrer" class="btn btn--outline">View Map</a>
     </div>
@@ -255,6 +258,15 @@
     <div class="gallery__grid reveal-up" id="gallery-grid"></div>
   </section>
 
+  <!-- Gallery lightbox: hidden until a gallery image is activated -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox__backdrop" id="lightbox-backdrop"></div>
+    <div class="lightbox__dialog" role="dialog" aria-modal="true" aria-label="Gallery image">
+      <button type="button" class="lightbox__close" id="lightbox-close" aria-label="Close image">&times;</button>
+      <img src="" alt="" class="lightbox__image" id="lightbox-image">
+    </div>
+  </div>
+
   <!-- ============ 10 · REGISTRY ============ -->
   <section class="registry" id="registry" aria-labelledby="registry-heading">
     <p class="eyebrow reveal-up">With Gratitude</p>
@@ -280,7 +292,37 @@
       <strong id="rsvp-deadline">15 May 2027</strong>
     </p>
 
-    <a id="rsvp-link" href="#" target="_blank" rel="noopener noreferrer" class="btn btn--filled reveal-up">RSVP Now</a>
+    <form class="rsvp__form reveal-up" id="rsvp-form" novalidate>
+      <div class="rsvp__field">
+        <label for="rsvp-name">Your Name(s)</label>
+        <input type="text" id="rsvp-name" name="name" autocomplete="name" required>
+      </div>
+
+      <fieldset class="rsvp__field rsvp__field--attending">
+        <legend>Will You Attend?</legend>
+        <label class="rsvp__radio">
+          <input type="radio" name="attending" value="yes" required>
+          <span>Yes, We'll Be There</span>
+        </label>
+        <label class="rsvp__radio">
+          <input type="radio" name="attending" value="no">
+          <span>So Sorry, Can't Make It</span>
+        </label>
+      </fieldset>
+
+      <div class="rsvp__field">
+        <label for="rsvp-guests">Number of Guests</label>
+        <input type="number" id="rsvp-guests" name="guests" min="1" max="10" value="1" inputmode="numeric">
+      </div>
+
+      <div class="rsvp__field">
+        <label for="rsvp-notes">Any Special Notes?</label>
+        <textarea id="rsvp-notes" name="notes" rows="3" placeholder="Dietary needs, song requests, well wishes..."></textarea>
+      </div>
+
+      <button type="submit" class="btn btn--filled rsvp__submit">Submit RSVP</button>
+      <p class="rsvp__form-note" role="status" aria-live="polite" id="rsvp-form-note">This preview doesn't store your response here — submitting opens our official RSVP form in a new tab to finish up.</p>
+    </form>
   </section>
 
   <!-- ============ 12 · FAQ ============ -->

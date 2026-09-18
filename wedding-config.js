@@ -29,12 +29,19 @@ const wedding = {
   date: {
     // Friendly display text used throughout the site.
     display: "Saturday, 12 June 2027",
-    // Exact ISO date & time used to power the live countdown.
-    // Format: "YYYY-MM-DDTHH:MM:SS" — use 24-hour time, no timezone
-    // letters. This should match your ceremony start time.
-    iso: "2027-06-12T16:00:00",
-    // The visitor's own browser timezone is used automatically —
-    // no timezone configuration needed.
+    // Exact ISO date, time, AND timezone offset that powers the live
+    // countdown. Format: "YYYY-MM-DDTHH:MM:SS+HH:MM" (or "-HH:MM").
+    // This should match your ceremony start time IN YOUR VENUE'S OWN
+    // TIMEZONE — the offset makes sure every guest sees an accurate
+    // countdown no matter their own timezone, instead of the count
+    // silently shifting for out-of-town guests. Common offsets:
+    //   Pacific:  -07:00 (summer) / -08:00 (winter)
+    //   Mountain: -06:00 / -07:00
+    //   Central:  -05:00 / -06:00
+    //   Eastern:  -04:00 / -05:00
+    //   UTC/GMT:   +00:00
+    // Not sure of your offset? Search "[your city] UTC offset".
+    iso: "2027-06-12T16:00:00-07:00",
   },
 
   // EDIT YOUR VENUE HERE
@@ -42,6 +49,7 @@ const wedding = {
     name: "The Willow Estate",
     addressLine1: "125 Garden Lane",
     addressLine2: "Meadowbrook",
+    description: "A breathtaking historic estate surrounded by gardens. The Willow Estate is a romantic countryside venue with lush gardens, European charm, and unforgettable views — the perfect place to celebrate our love.",
     mapsUrl: "https://www.google.com/maps",
     image: "assets/images/venue.svg"
   },
@@ -195,6 +203,14 @@ const wedding = {
     {
       question: "Where is the registry?",
       answer: "You can find links to our registries in the Registry section of this website. Your presence is truly the greatest gift."
+    },
+    {
+      question: "Are there hotel recommendations?",
+      answer: "Yes — see the Travel & Stay section above for our recommended hotel, along with airport and travel details for out-of-town guests."
+    },
+    {
+      question: "Still have a question?",
+      answer: "We're happy to help! Please reach out to us directly and we'll get back to you as soon as we can."
     }
   ],
 
