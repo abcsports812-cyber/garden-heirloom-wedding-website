@@ -545,10 +545,24 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   margin: 2.5rem auto 0;
 }
 .countdown__unit {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.4rem;
+}
+.countdown__unit:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: calc(-0.5rem - 1px);
+  transform: translateY(-50%);
+  width: 1px;
+  height: 2.4rem;
+  background: rgba(251, 243, 236, 0.22);
+}
+@media (max-width: 399px) {
+  .countdown__unit::after { display: none; }
 }
 .countdown__value {
   font-family: var(--font-serif);
@@ -573,7 +587,11 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 /* ==================================================================
    THE DAY
    ================================================================== */
-.day { padding: var(--section-pad-y) var(--gutter); max-width: 760px; margin: 0 auto; }
+.day { padding: var(--section-pad-y) var(--gutter); max-width: 1100px; margin: 0 auto; }
+.day__inner { display: flex; flex-direction: column; gap: 2.5rem; }
+.day__media { position: relative; }
+.day__media img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.day__content { text-align: center; }
 .day-timeline {
   margin-top: 3rem;
   position: relative;
@@ -603,6 +621,13 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   margin-bottom: 0.2rem;
 }
 .day-timeline__title { font-size: var(--fs-small); letter-spacing: 0.03em; }
+
+@media (min-width: 1024px) {
+  .day__inner { flex-direction: row; align-items: flex-start; gap: 4.5rem; }
+  .day__media { flex: 0 0 36%; }
+  .day__content { flex: 1; text-align: left; }
+  .day .eyebrow, .day__content .section-heading { text-align: left; }
+}
 
 /* ==================================================================
    VENUE
@@ -807,6 +832,20 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   object-fit: contain;
   border: 4px solid var(--ivory);
 }
+/* At full lightbox size the flat vector shapes of the botanical
+   illustrations can read as obviously "constructed" rather than
+   textured. A very light noise overlay — CSS-only, so the source SVGs
+   and their thumbnails elsewhere on the page are untouched — softens
+   that without touching sharpness or quality of the image itself. */
+.lightbox__dialog::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.45 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
 .lightbox__close {
   position: fixed;
   top: 1.25rem;
@@ -943,7 +982,18 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 .rsvp__field textarea { min-height: 90px; resize: vertical; }
 .rsvp__field input:focus-visible,
 .rsvp__field textarea:focus-visible { outline: 2px solid var(--burgundy); outline-offset: 1px; }
+.rsvp__field input[aria-invalid="true"],
+.rsvp__field textarea[aria-invalid="true"] { border-color: var(--burgundy); background: rgba(91, 31, 42, 0.05); }
 .rsvp__field--attending { gap: 0.75rem; }
+.rsvp__field--attending.rsvp__field--has-error .rsvp__radio { color: var(--burgundy); }
+.rsvp__error {
+  margin: 0.1rem 0 0;
+  font-size: var(--fs-small);
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--burgundy);
+}
+.rsvp__error::before { content: "— "; }
 .rsvp__radio {
   display: flex;
   align-items: center;
@@ -966,7 +1016,15 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 /* ==================================================================
    FAQ
    ================================================================== */
-.faq { padding: var(--section-pad-y) var(--gutter); max-width: 760px; margin: 0 auto; }
+.faq { padding: var(--section-pad-y) var(--gutter); max-width: 1100px; margin: 0 auto; }
+.faq__inner { display: flex; flex-direction: column; }
+.faq__decor {
+  display: none;
+  width: 100%;
+  aspect-ratio: 7 / 15;
+  object-fit: cover;
+}
+.faq__content { width: 100%; max-width: 640px; margin: 0 auto; }
 .faq__list { margin-top: 3rem; border-top: 1px solid var(--champagne); }
 .faq__item { border-bottom: 1px solid var(--champagne); }
 .faq__question {
@@ -1009,6 +1067,12 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 }
 .faq__panel[data-open="true"] .faq__panel-inner { padding-bottom: 1.4rem; }
 .faq__answer { opacity: 0.9; }
+
+@media (min-width: 1024px) {
+  .faq__inner { flex-direction: row; align-items: center; gap: 4rem; }
+  .faq__decor { display: block; flex: 0 0 26%; max-width: 300px; }
+  .faq__content { flex: 1; max-width: 640px; margin: 0; }
+}
 
 /* ==================================================================
    CLOSING

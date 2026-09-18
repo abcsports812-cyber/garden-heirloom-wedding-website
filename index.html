@@ -128,7 +128,7 @@
         <p class="wedding__time" id="ceremony-time">4:00 PM</p>
         <p class="wedding__venue-name" id="wedding-venue-name">The Willow Estate</p>
         <p class="wedding__address" id="wedding-address">125 Garden Lane<br>Meadowbrook</p>
-        <a id="wedding-map-link" href="#" target="_blank" rel="noopener noreferrer" class="btn btn--text">View Location</a>
+        <a id="wedding-map-link" href="#" target="_blank" rel="noopener noreferrer" class="btn btn--outline">View Location</a>
       </div>
 
       <div class="wedding__divider" aria-hidden="true"></div>
@@ -173,10 +173,16 @@
 
   <!-- ============ 05 · THE DAY ============ -->
   <section class="day" id="day" aria-labelledby="day-heading">
-    <p class="eyebrow reveal-up">Schedule</p>
-    <h2 class="section-heading section-heading--center reveal-up" id="day-heading">The Day</h2>
-
-    <ol class="day-timeline reveal-up" id="day-timeline" aria-label="Order of the day"></ol>
+    <div class="day__inner">
+      <div class="day__media reveal-up">
+        <img id="day-image" src="assets/images/day.svg" alt="" loading="lazy">
+      </div>
+      <div class="day__content">
+        <p class="eyebrow reveal-up">Schedule</p>
+        <h2 class="section-heading reveal-up" id="day-heading">The Day</h2>
+        <ol class="day-timeline reveal-up" id="day-timeline" aria-label="Order of the day"></ol>
+      </div>
+    </div>
   </section>
 
   <!-- ============ 06 · VENUE ============ -->
@@ -290,10 +296,11 @@
     <form class="rsvp__form reveal-up" id="rsvp-form" novalidate>
       <div class="rsvp__field">
         <label for="rsvp-name">Your Name(s)</label>
-        <input type="text" id="rsvp-name" name="name" autocomplete="name" required>
+        <input type="text" id="rsvp-name" name="name" autocomplete="name" required aria-describedby="rsvp-name-error">
+        <p class="rsvp__error" id="rsvp-name-error" role="alert" hidden>Please tell us your name.</p>
       </div>
 
-      <fieldset class="rsvp__field rsvp__field--attending">
+      <fieldset class="rsvp__field rsvp__field--attending" aria-describedby="rsvp-attending-error">
         <legend>Will You Attend?</legend>
         <label class="rsvp__radio">
           <input type="radio" name="attending" value="yes" required>
@@ -303,6 +310,7 @@
           <input type="radio" name="attending" value="no">
           <span>So Sorry, Can't Make It</span>
         </label>
+        <p class="rsvp__error" id="rsvp-attending-error" role="alert" hidden>Please let us know if you'll attend.</p>
       </fieldset>
 
       <div class="rsvp__field">
@@ -322,10 +330,15 @@
 
   <!-- ============ 12 · FAQ ============ -->
   <section class="faq" id="faq" aria-labelledby="faq-heading">
-    <p class="eyebrow reveal-up">Good to Know</p>
-    <h2 class="section-heading section-heading--center reveal-up" id="faq-heading">Frequently Asked Questions</h2>
+    <div class="faq__inner">
+      <img id="faq-image" src="assets/images/faq.svg" alt="" class="faq__decor reveal-up" loading="lazy" aria-hidden="true">
+      <div class="faq__content">
+        <p class="eyebrow reveal-up">Good to Know</p>
+        <h2 class="section-heading section-heading--center reveal-up" id="faq-heading">Frequently Asked Questions</h2>
 
-    <div class="faq__list reveal-up" id="faq-list"></div>
+        <div class="faq__list reveal-up" id="faq-list"></div>
+      </div>
+    </div>
   </section>
 
   <!-- ============ 13 · CLOSING ============ -->

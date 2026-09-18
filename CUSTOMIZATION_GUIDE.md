@@ -91,13 +91,16 @@ Rewrite `paragraph` with your own story. Add, remove, or rename `timeline` entri
 ## The Day (Order of Events)
 
 ```js
+day: {
+  image: "assets/images/day.svg"
+},
 daySchedule: [
   { time: "3:30 PM", title: "Guest Arrival" },
   { time: "4:00 PM", title: "Ceremony" },
   ...
 ]
 ```
-Add or remove rows freely — copy an existing line, change the `time` and `title`, and keep the commas between entries.
+`day.image` is a decorative panel shown beside the schedule on wider screens (it's hidden and the timeline stacks full-width on phones and tablets, so you don't need to worry about it there). Add or remove schedule rows freely — copy an existing line, change the `time` and `title`, and keep the commas between entries.
 
 ---
 
@@ -200,12 +203,13 @@ Set your RSVP deadline and paste the link to your external RSVP form (Google For
 ## FAQ
 
 ```js
+faqImage: "assets/images/faq.svg",
 faq: [
   { question: "What should I wear?", answer: "..." },
   ...
 ]
 ```
-Add, remove, or edit any number of question/answer pairs. Each needs a `question` and an `answer`.
+`faqImage` is a slim decorative panel shown beside the question list on desktop screens only (it's hidden on phones and tablets to keep the accordion compact there). Add, remove, or edit any number of question/answer pairs in `faq` — each needs a `question` and an `answer`.
 
 ---
 

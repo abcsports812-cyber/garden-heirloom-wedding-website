@@ -82,6 +82,7 @@
     setText('reception-details', cfg.reception.details);
 
     // Day timeline
+    setImg('day-image', cfg.day && cfg.day.image, '');
     renderList('day-timeline', cfg.daySchedule, function (item) {
       return renderEl('li', {}, [
         renderEl('span', { class: 'day-timeline__time' }, [document.createTextNode(item.time)]),
@@ -150,6 +151,7 @@
     setText('rsvp-deadline', cfg.rsvp.deadline);
 
     // FAQ
+    setImg('faq-image', cfg.faqImage, '');
     renderFaq(cfg.faq);
 
     // Closing
@@ -462,9 +464,65 @@
     var note = document.getElementById('rsvp-form-note');
     if (!form || !cfg) return;
 
+    var nameInput = document.getElementById('rsvp-name');
+    var nameError = document.getElementById('rsvp-name-error');
+    var attendingFieldset = form.querySelector('.rsvp__field--attending');
+    var attendingError = document.getElementById('rsvp-attending-error');
+    var attendingInputs = Array.prototype.slice.call(form.querySelectorAll('input[name="attending"]'));
+
+    function setFieldError(field, errorEl, show) {
+      if (!field || !errorEl) return;
+      errorEl.hidden = !show;
+      if (show) {
+        field.setAttribute('aria-invalid', 'true');
+      } else {
+        field.removeAttribute('aria-invalid');
+      }
+    }
+
+    function setGroupError(group, inputs, errorEl, show) {
+      if (!errorEl) return;
+      errorEl.hidden = !show;
+      inputs.forEach(function (input) {
+        if (show) input.setAttribute('aria-invalid', 'true');
+        else input.removeAttribute('aria-invalid');
+      });
+      if (group) {
+        if (show) group.classList.add('rsvp__field--has-error');
+        else group.classList.remove('rsvp__field--has-error');
+      }
+    }
+
+    // Clear a field's error as soon as the guest starts fixing it —
+    // waiting for the next submit to clear stale errors reads as broken.
+    if (nameInput) {
+      nameInput.addEventListener('input', function () {
+        if (nameInput.value.trim()) setFieldError(nameInput, nameError, false);
+      });
+    }
+    attendingInputs.forEach(function (input) {
+      input.addEventListener('change', function () {
+        setGroupError(attendingFieldset, attendingInputs, attendingError, false);
+      });
+    });
+
     form.addEventListener('submit', function (event) {
       event.preventDefault();
-      if (!form.reportValidity()) return;
+
+      var firstInvalid = null;
+      var nameValid = !nameInput || nameInput.value.trim() !== '';
+      var attendingValid = !attendingInputs.length || attendingInputs.some(function (i) { return i.checked; });
+
+      setFieldError(nameInput, nameError, !nameValid);
+      if (!nameValid && !firstInvalid) firstInvalid = nameInput;
+
+      setGroupError(attendingFieldset, attendingInputs, attendingError, !attendingValid);
+      if (!attendingValid && !firstInvalid) firstInvalid = attendingInputs[0];
+
+      if (firstInvalid) {
+        firstInvalid.focus();
+        return;
+      }
 
       var opened = window.open(cfg.rsvp.url, '_blank', 'noopener,noreferrer');
       if (note) {
@@ -484,6 +542,7 @@
     var backdrop = document.getElementById('lightbox-backdrop');
     var closeBtn = document.getElementById('lightbox-close');
     var lightboxImg = document.getElementById('lightbox-image');
+    var menuToggle = document.getElementById('menu-toggle');
     if (!grid || !lightbox || !lightboxImg) return;
 
     var lastTrigger = null;
@@ -497,7 +556,21 @@
       lightbox.classList.add('is-open');
       lightbox.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
-      closeBtn.focus();
+      // The mobile hamburger toggle sits in the same fixed top-right
+      // corner as the lightbox close button, on top of a now-hidden
+      // page — hide it from view and from the tab order while the
+      // lightbox owns that corner, so the two controls never visually
+      // or interactively collide.
+      if (menuToggle) {
+        menuToggle.style.visibility = 'hidden';
+        menuToggle.setAttribute('tabindex', '-1');
+      }
+      // Same class of bug as the mobile menu's initial focus: calling
+      // .focus() synchronously right after toggling the class that
+      // starts the lightbox's visibility/opacity transition can
+      // silently fail to move focus in this environment. A short
+      // deferral after the paint has committed focuses reliably.
+      setTimeout(function () { closeBtn.focus(); }, 50);
     }
 
     function close() {
@@ -505,6 +578,10 @@
       lightbox.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
       lightboxImg.src = '';
+      if (menuToggle) {
+        menuToggle.style.visibility = '';
+        menuToggle.removeAttribute('tabindex');
+      }
       if (lastTrigger) lastTrigger.focus();
     }
 

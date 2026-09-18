@@ -87,6 +87,11 @@ const wedding = {
     ]
   },
 
+  // Decorative panel shown beside the day's schedule on wider screens.
+  day: {
+    image: "assets/images/day.svg"
+  },
+
   // The order of events on your wedding day. Add or remove rows freely.
   daySchedule: [
     { time: "3:30 PM", title: "Guest Arrival" },
@@ -177,6 +182,9 @@ const wedding = {
     message: "We can't wait to celebrate with you.",
     image: "assets/images/rsvp-bg.svg"
   },
+
+  // Decorative panel shown beside the FAQ list on wider screens.
+  faqImage: "assets/images/faq.svg",
 
   // Add, remove, or edit as many questions as you like.
   faq: [
