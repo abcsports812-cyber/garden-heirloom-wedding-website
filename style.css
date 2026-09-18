@@ -722,12 +722,11 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 }
 .people__sprig { display: block; width: 64px; height: auto; margin: 1rem auto 0; opacity: 0.85; }
 .people__grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.75rem 1.5rem;
 }
-.people__card { width: calc(50% - 0.75rem); text-align: center; }
+.people__card { text-align: center; }
 .people__photo {
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -744,7 +743,7 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 }
 
 @media (min-width: 600px) {
-  .people__card { width: calc(33.333% - 1rem); }
+  .people__grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 /* ==================================================================
