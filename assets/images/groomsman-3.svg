@@ -1,19 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800" role="img" aria-label="Decorative placeholder">
-  <defs>
-    <linearGradient id="g36" x1="10%" y1="0%" x2="90%" y2="100%">
-      <stop offset="0%" stop-color="#6D7659" stop-opacity="0.6"/>
-      <stop offset="100%" stop-color="#8A9573" stop-opacity="1"/>
-    </linearGradient>
-    <radialGradient id="hg36" cx="25%" cy="15%" r="70%">
-      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.28"/>
-      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="vg36" cx="50%" cy="50%" r="75%">
-      <stop offset="55%" stop-color="#000000" stop-opacity="0"/>
-      <stop offset="100%" stop-color="#000000" stop-opacity="0.12"/>
-    </radialGradient>
-  </defs>
-  <rect width="800" height="800" fill="url(#g36)"/>
-  <rect width="800" height="800" fill="url(#hg36)"/>
-  <rect width="800" height="800" fill="url(#vg36)"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800" role="img" aria-label="Decorative editorial placeholder">
+  <defs><linearGradient id="bg36" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#F2C6B4"/><stop offset="100%" stop-color="#FFFBF6"/></linearGradient><radialGradient id="light36" cx="32%" cy="22%" r="65%"><stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.38"/><stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/></radialGradient><radialGradient id="vig36" cx="50%" cy="50%" r="75%"><stop offset="55%" stop-color="#000000" stop-opacity="0"/><stop offset="100%" stop-color="#000000" stop-opacity="0.10"/></radialGradient><filter id="soft-blur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="18"/></filter><filter id="soft-blur-sm" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="9"/></filter>
+    <filter id="grain36" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="36" result="noise"/>
+      <feColorMatrix in="noise" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0.9 0 0 0 0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.025"/></feComponentTransfer>
+    </filter>
+    </defs>
+  <rect width="800" height="800" fill="url(#bg36)"/>
+  <circle cx="276.7" cy="709.3" r="124.7" fill="#FFFBF6" fill-opacity="0.25" filter="url(#soft-blur)"/><circle cx="670.0" cy="80.3" r="98.2" fill="#C9A05C" fill-opacity="0.15" filter="url(#soft-blur)"/><circle cx="351.3" cy="438.5" r="91.4" fill="#E3A98F" fill-opacity="0.20" filter="url(#soft-blur)"/><circle cx="746.7" cy="301.2" r="112.5" fill="#FFFBF6" fill-opacity="0.24" filter="url(#soft-blur-sm)"/><circle cx="128.9" cy="398.3" r="109.2" fill="#C9A05C" fill-opacity="0.19" filter="url(#soft-blur-sm)"/>
+  
+  <rect width="800" height="800" fill="url(#light36)"/>
+  <rect width="800" height="800" fill="url(#vig36)"/>
+  <rect width="800" height="800" fill="none" filter="url(#grain36)" opacity="0.5"/>
 </svg>

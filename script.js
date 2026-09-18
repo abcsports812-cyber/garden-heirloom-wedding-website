@@ -67,6 +67,7 @@
     });
 
     // The Wedding
+    setImg('wedding-image', cfg.ceremony.image, names + ' — wedding details');
     setText('ceremony-time', cfg.ceremony.time);
     setText('wedding-venue-name', cfg.venue.name);
     setAddress('wedding-address', cfg.venue.addressLine1, cfg.venue.addressLine2);
@@ -90,6 +91,7 @@
     setImg('venue-image', cfg.venue.image, cfg.venue.name);
 
     // Travel
+    setImg('travel-image', cfg.travel.image, 'The road to ' + cfg.venue.name);
     setText('airport-name', cfg.travel.airport.name);
     setText('airport-duration', cfg.travel.airport.duration);
     setHref('airport-link', cfg.travel.airport.url);
@@ -131,6 +133,7 @@
     });
 
     // RSVP
+    setImg('rsvp-image', cfg.rsvp.image, '');
     setText('rsvp-message', cfg.rsvp.message);
     setText('rsvp-deadline', cfg.rsvp.deadline);
     setHref('rsvp-link', cfg.rsvp.url);
@@ -331,6 +334,12 @@
       return;
     }
 
+    // A small, permissive threshold/rootMargin: this is a decorative fade-in,
+    // not a gate on content, so it should trigger as soon as any sliver of
+    // the element is visible rather than requiring most of it in view. A
+    // stricter threshold could leave a tall element (e.g. a 3-column block
+    // near a section's bottom edge) stuck at opacity:0 if a visitor's
+    // scroll position happens to land with it only partially on-screen.
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
@@ -338,9 +347,21 @@
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+    }, { threshold: 0.01, rootMargin: '0px 0px 100px 0px' });
 
     items.forEach(function (el) { observer.observe(el); });
+
+    // Safety net: content must never stay invisible. If anything is still
+    // unrevealed shortly after load (an edge case the observer missed),
+    // reveal it outright rather than risk it staying hidden forever.
+    setTimeout(function () {
+      document.querySelectorAll('.reveal-up:not(.is-visible)').forEach(function (el) {
+        var rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          el.classList.add('is-visible');
+        }
+      });
+    }, 2500);
   }
 
   /* ---------------------------------------------------------------

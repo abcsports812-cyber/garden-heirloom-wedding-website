@@ -75,7 +75,7 @@ For a detailed, section-by-section walkthrough, see **CUSTOMIZATION_GUIDE.md**.
 
 ## 4. Replacing Photos
 
-The template ships with elegant placeholder artwork (soft botanical line-art) so you can preview the full design immediately. Before publishing, replace these with your own photography:
+**About the demo images:** every photo-shaped area in this template ships with an original, procedurally-generated placeholder — a warm, soft-focus "editorial light" graphic (SVG, not a real photograph) designed to preview the layout, cropping, and color mood without using anyone else's photography. Nothing in `assets/images/` or `assets/florals/` was copied, scraped, or extracted from any other website, template, or stock library, so there is no copyright concern in using or reselling this template as-is. That said, **the demo images are a placeholder, not a finished product** — replace them with your own real wedding/engagement photos (or photography you've properly licensed) before publishing:
 
 1. Add your photo files to `assets/images/`.
 2. Use clear file names (e.g. `hero.jpg`, `story.jpg`, `venue.jpg`).
@@ -89,9 +89,10 @@ The template ships with elegant placeholder artwork (soft botanical line-art) so
 4. For best performance, compress your photos before uploading (aim for under ~400KB each). Free tools like Squoosh (squoosh.app) or TinyPNG (tinypng.com) work well.
 5. Recommended photo orientations:
    - Hero, story, closing: portrait or tall images
-   - Venue: wide/landscape images
+   - Venue, travel banner, wedding banner: wide/landscape images
    - Gallery: a mix of portrait, square, and wide images (see the gallery section in the guide)
    - Wedding party: square, close-cropped portraits
+   - RSVP background: a soft, uncluttered image — it sits behind a light overlay, so anything too busy or high-contrast will compete with the text
 
 ---
 

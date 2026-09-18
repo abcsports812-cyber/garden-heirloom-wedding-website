@@ -48,7 +48,8 @@ const wedding = {
 
   ceremony: {
     time: "4:00 PM",
-    details: "The Willow Estate, Garden Pavilion"
+    details: "The Willow Estate, Garden Pavilion",
+    image: "assets/images/wedding-detail.svg"
   },
 
   reception: {
@@ -92,6 +93,7 @@ const wedding = {
 
   // Travel & accommodation information for out-of-town guests.
   travel: {
+    image: "assets/images/travel-scenery.svg",
     airport: {
       name: "Meadowbrook International Airport",
       duration: "30 minutes by car",
@@ -164,7 +166,8 @@ const wedding = {
   rsvp: {
     deadline: "15 May 2027",
     url: "https://forms.google.com",
-    message: "We can't wait to celebrate with you."
+    message: "We can't wait to celebrate with you.",
+    image: "assets/images/rsvp-bg.svg"
   },
 
   // Add, remove, or edit as many questions as you like.

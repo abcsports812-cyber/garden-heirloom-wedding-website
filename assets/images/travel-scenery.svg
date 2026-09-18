@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 700" width="1600" height="700" role="img" aria-label="Decorative editorial placeholder">
+  <defs><linearGradient id="bg41" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#6D7659"/><stop offset="55%" stop-color="#9AA483"/><stop offset="100%" stop-color="#D8BFA3"/></linearGradient><radialGradient id="light41" cx="70%" cy="20%" r="65%"><stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.38"/><stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/></radialGradient><radialGradient id="vig41" cx="50%" cy="50%" r="75%"><stop offset="55%" stop-color="#000000" stop-opacity="0"/><stop offset="100%" stop-color="#000000" stop-opacity="0.22"/></radialGradient><filter id="soft-blur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="18"/></filter><filter id="soft-blur-sm" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="9"/></filter>
+    <filter id="grain41" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="41" result="noise"/>
+      <feColorMatrix in="noise" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0.9 0 0 0 0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.050"/></feComponentTransfer>
+    </filter>
+    </defs>
+  <rect width="1600" height="700" fill="url(#bg41)"/>
+  <circle cx="628.7" cy="199.2" r="53.6" fill="#FFFBF6" fill-opacity="0.25" filter="url(#soft-blur)"/><circle cx="1073.8" cy="379.7" r="68.8" fill="#F2C6B4" fill-opacity="0.22" filter="url(#soft-blur)"/><circle cx="1204.9" cy="440.5" r="100.8" fill="#C9A05C" fill-opacity="0.18" filter="url(#soft-blur-sm)"/><circle cx="295.8" cy="475.0" r="53.7" fill="#FFFBF6" fill-opacity="0.21" filter="url(#soft-blur)"/><circle cx="165.7" cy="509.2" r="44.3" fill="#F2C6B4" fill-opacity="0.24" filter="url(#soft-blur)"/>
+  
+  <rect width="1600" height="700" fill="url(#light41)"/>
+  <rect width="1600" height="700" fill="url(#vig41)"/>
+  <rect width="1600" height="700" fill="none" filter="url(#grain41)" opacity="0.5"/>
+</svg>

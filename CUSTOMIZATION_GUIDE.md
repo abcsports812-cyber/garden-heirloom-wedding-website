@@ -61,10 +61,10 @@ Update the name, address, and `mapsUrl` (open Google Maps, search your venue, cl
 ## Ceremony & Reception
 
 ```js
-ceremony: { time: "4:00 PM", details: "The Willow Estate, Garden Pavilion" },
+ceremony: { time: "4:00 PM", details: "The Willow Estate, Garden Pavilion", image: "assets/images/wedding-detail.svg" },
 reception: { time: "5:30 PM", details: "Dinner • Dancing • Celebration" }
 ```
-Edit the times and short details shown in "The Wedding" section.
+Edit the times and short details shown in "The Wedding" section. `ceremony.image` is the wide banner photo at the top of the section — a detail shot (rings, decor) works well here.
 
 ---
 
@@ -104,6 +104,7 @@ Add or remove rows freely — copy an existing line, change the `time` and `titl
 
 ```js
 travel: {
+  image: "assets/images/travel-scenery.svg",
   airport: {
     name: "Meadowbrook International Airport",
     duration: "30 minutes by car",
@@ -122,7 +123,7 @@ travel: {
   ]
 }
 ```
-Update the airport name/directions link, and your recommended hotel's name, address, and booking link. Add, remove, or edit as many `tips` as you like — each is a short sentence shown as a bullet in the "Travel Tips" column.
+`image` is the wide scenery banner at the top of the section. Update the airport name/directions link, and your recommended hotel's name, address, and booking link. Add, remove, or edit as many `tips` as you like — each is a short sentence shown as a bullet in the "Travel Tips" column.
 
 ---
 
@@ -185,10 +186,11 @@ Add, remove, or edit registry entries — each needs a `name` and a `url`.
 rsvp: {
   deadline: "15 May 2027",
   url: "https://forms.google.com",
-  message: "We can't wait to celebrate with you."
+  message: "We can't wait to celebrate with you.",
+  image: "assets/images/rsvp-bg.svg"
 }
 ```
-Set your RSVP deadline and paste the link to your external RSVP form (Google Forms, Zola, Typeform, etc.). This website links out to that form — it does not collect responses itself.
+Set your RSVP deadline and paste the link to your external RSVP form (Google Forms, Zola, Typeform, etc.). This website links out to that form — it does not collect responses itself. `image` is a soft background photo shown behind the RSVP card (veiled under a light overlay, so keep the RSVP text as the focal point rather than a busy photo).
 
 ---
 

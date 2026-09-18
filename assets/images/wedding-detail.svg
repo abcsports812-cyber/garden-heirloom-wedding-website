@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 640" width="1600" height="640" role="img" aria-label="Decorative editorial placeholder">
+  <defs><linearGradient id="bg40" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#E3A98F"/><stop offset="50%" stop-color="#F2C6B4"/><stop offset="100%" stop-color="#D8BFA3"/></linearGradient><radialGradient id="light40" cx="30%" cy="25%" r="65%"><stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.38"/><stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/></radialGradient><radialGradient id="vig40" cx="50%" cy="50%" r="75%"><stop offset="55%" stop-color="#000000" stop-opacity="0"/><stop offset="100%" stop-color="#000000" stop-opacity="0.22"/></radialGradient><filter id="soft-blur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="18"/></filter><filter id="soft-blur-sm" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="9"/></filter>
+    <filter id="grain40" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="40" result="noise"/>
+      <feColorMatrix in="noise" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0.9 0 0 0 0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.050"/></feComponentTransfer>
+    </filter>
+    </defs>
+  <rect width="1600" height="640" fill="url(#bg40)"/>
+  <circle cx="740.4" cy="513.5" r="40.4" fill="#C9A05C" fill-opacity="0.16" filter="url(#soft-blur)"/><circle cx="1036.6" cy="129.7" r="60.7" fill="#FFFBF6" fill-opacity="0.24" filter="url(#soft-blur)"/><circle cx="121.2" cy="522.8" r="46.7" fill="#8C4452" fill-opacity="0.21" filter="url(#soft-blur)"/><circle cx="743.4" cy="556.5" r="49.7" fill="#C9A05C" fill-opacity="0.20" filter="url(#soft-blur-sm)"/><circle cx="1470.5" cy="138.1" r="71.2" fill="#FFFBF6" fill-opacity="0.24" filter="url(#soft-blur)"/><circle cx="220.5" cy="513.2" r="92.3" fill="#8C4452" fill-opacity="0.16" filter="url(#soft-blur)"/><circle cx="407.0" cy="142.8" r="48.8" fill="#C9A05C" fill-opacity="0.16" filter="url(#soft-blur)"/>
+  
+  <rect width="1600" height="640" fill="url(#light40)"/>
+  <rect width="1600" height="640" fill="url(#vig40)"/>
+  <rect width="1600" height="640" fill="none" filter="url(#grain40)" opacity="0.5"/>
+</svg>
